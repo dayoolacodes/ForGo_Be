@@ -1,28 +1,18 @@
 import React from 'react';
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
+import Aux from '../src/hoc/Auxil'
+import  Layout from '../src/hoc/Layout/Layout'
+import 'bootstrap/dist/css/bootstrap.min.css';
+import GoBeApp from '../src/components/GoBeApp/App'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-
-      GoBe
-
-        {/* <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a> */}
-      </header>
-    </div>
+    <Aux>
+      <Layout>
+        <GoBeApp />
+       </Layout>
+    </Aux>
   );
 }
 
