@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Container, Row } from 'react-bootstrap';
+import React from 'react';
+
 import Aux from '../../../hoc/Auxil'
 import classes from './Login.module.css'
 import illustration1 from '../../../assets/images/illustration1.svg'
@@ -25,7 +25,7 @@ const Login = (prop) => {
                 <span className={classes.SubscribeText} >Subscribe to our newsletter</span>
                 <button className={classes.Button} type='submit'> Submit </button>
                   </div>  
-                  <div style={{width:"800px", margin: "100px"}}>
+                  <div style={{width:"800px", margin: "100px", minWidth: "500px"}}>
                     <img src={illustration1} alt='ils'/>
                   </div>
 

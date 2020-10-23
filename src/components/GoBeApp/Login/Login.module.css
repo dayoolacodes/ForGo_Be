@@ -19,9 +19,9 @@
       
     }
     .TextBox {
-        width: 100%;
+        width: 80%;
         height: 60px;
-        margin-top: 20px;
+        margin: 0px 200px 10px 0px;
         font-size: 25px;
         box-sizing: border-box;
         border-radius: 50px;
@@ -62,7 +62,7 @@
         box-sizing: border-box;
         border-radius: 40px;
         box-shadow: 0 9px 4px 1px rgb(223, 221, 221);
-        width: 100%;
+        width: 50%;
         text-transform: uppercase;
         outline: none !important;
       }
