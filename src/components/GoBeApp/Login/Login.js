@@ -6,7 +6,8 @@ import illustration1 from '../../../assets/images/illustration1.svg'
 
 
 
-const Login = (prop) => {
+
+const Login = () => {
 //    const  [check, setCheck] = useState(false)
 
 //    const handleCheck =()=>{
@@ -25,7 +26,8 @@ const Login = (prop) => {
                 <span className={classes.SubscribeText} >Subscribe to our newsletter</span>
                 <button className={classes.Button} type='submit'> Submit </button>
                   </div>  
-                  <div style={{width:"800px", margin: "100px", minWidth: "500px"}}>
+                  <div className={classes.imgDiv}>
+                      
                     <img src={illustration1} alt='ils'/>
                   </div>
 

@@ -1,76 +1,83 @@
- 
-    .Login {
-        /* margin: 30px; */
-        
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        /* min-height: 50vh; */
-        flex-wrap: wrap;
-        flex-direction: row;
-      }
-    .Text {
-      width: 475px;
-      font-family: IBM Plex Sans;
-      font-size: 34px;
-      line-height: 114.5%;
-      letter-spacing: -0.065em;
-      box-sizing: border-box;
-      
-    }
-    .TextBox {
-        width: 80%;
-        height: 60px;
-        margin: 0px 200px 10px 0px;
-        font-size: 25px;
-        box-sizing: border-box;
-        border-radius: 50px;
-        box-shadow: 0 4px 2px 1px rgb(182, 180, 180);
-        text-align: left;
-        padding: 0px 0px 0px 35px;
-        border: none;
-        outline: none !important;
-      }
+.Login {
+  /* margin: 30px; */
 
-      .SubscribeText {
-        /* Subscribe to our newsletter */
-        width: 100%;
-        height: 25px;
-        left: 233px;
-        top: 621px;
-        margin: 20px;
-        font-family: IBM Plex Sans;
-        font-style: normal;
-        font-weight: 609;
-        font-size: 18px;
-        line-height: 23px;
-        letter-spacing: -0.045em;
-      }
-      .Button {
-        background-color: #22b573;
-        border: none;
-        color: #ffff;
-        outline: none;
-        cursor: pointer;
-        font: inherit;
-        font-family: IBM Plex Sans;
-        font-size: 18px;
-        padding: 5px;
-        margin: 10px;
-        width: 50%;
-        font-weight: bold;
-        box-sizing: border-box;
-        border-radius: 40px;
-        box-shadow: 0 9px 4px 1px rgb(223, 221, 221);
-        width: 50%;
-        text-transform: uppercase;
-        outline: none !important;
-      }
-      .Text img{
-        width: 1000px; 
-        min-width: 1060px; 
-        text-align: center; 
-        margin: 5% auto; 
-        background-color: transparent;
-        text-shadow: 0 9px 4px 1px rgb(223, 221, 221);
-    }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* min-height: 50vh; */
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+.Text {
+  width: 475px;
+  font-family: IBM Plex Sans;
+  font-size: 34px;
+  line-height: 114.5%;
+  letter-spacing: -0.065em;
+  box-sizing: border-box;
+}
+.TextBox {
+  width: 80%;
+  min-width: 80%;
+  height: 60px;
+  margin: 0px 200px 10px 0px;
+  font-size: 25px;
+  box-sizing: border-box;
+  border-radius: 50px;
+  box-shadow: 0 4px 2px 1px rgb(182, 180, 180);
+  text-align: left;
+  padding: 0px 0px 0px 35px;
+  border: none;
+  outline: none !important;
+}
+
+.SubscribeText {
+  /* Subscribe to our newsletter */
+  width: 100%;
+  height: 25px;
+  left: 233px;
+  top: 621px;
+  margin-left: 20px;
+  font-family: IBM Plex Sans;
+  font-style: normal;
+  font-weight: 609;
+  font-size: 18px;
+  line-height: 23px;
+  letter-spacing: -0.045em;
+}
+.Button {
+  background-color: #22b573;
+  border: none;
+  color: #ffff;
+  outline: none;
+  cursor: pointer;
+  font: inherit;
+  font-family: IBM Plex Sans;
+  font-size: 18px;
+  padding: 5px;
+  margin: 10px;
+  width: 50%;
+  font-weight: bold;
+  box-sizing: border-box;
+  border-radius: 40px;
+  box-shadow: 0 9px 4px 1px rgb(223, 221, 221);
+  width: 50%;
+  text-transform: uppercase;
+  outline: none !important;
+}
+.Text img {
+  width: 1000px;
+  min-width: 1060px;
+  text-align: center;
+  margin: 5% auto;
+  background-color: transparent;
+  text-shadow: 0 9px 4px 1px rgb(223, 221, 221);
+}
+
+.imgDiv{
+    width:1000px; 
+    margin: 100px;
+    min-width: 500px;    
+}
+
+
