@@ -10,6 +10,7 @@
 }
 .Text {
   width: 475px;
+  min-width: 350px;
   font-family: IBM Plex Sans;
   font-size: 34px;
   line-height: 114.5%;
@@ -75,9 +76,10 @@
 }
 
 .imgDiv {
-  width: 1000px;
+  width: 600px;
   margin: 100px;
   min-width: 500px;
+  padding: 20px;
 }
 
 .Shadow {
@@ -87,6 +89,3 @@
   width: 70%;
   margin-left: 12%;
 }
-
-
-

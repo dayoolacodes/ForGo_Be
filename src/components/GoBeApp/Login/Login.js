@@ -19,6 +19,7 @@ const bounceAnimation = keyframes`
 `
 
 const IMG = styled.img`
+ width: auto;
  animation-name: ${bounceAnimation};
  animation-duration: 9s;
  animation-iteration-count: infinite;
