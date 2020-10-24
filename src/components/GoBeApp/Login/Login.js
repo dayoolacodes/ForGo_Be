@@ -3,6 +3,26 @@ import React from 'react';
 import Aux from '../../../hoc/Auxil'
 import classes from './Login.module.css'
 import illustration1 from '../../../assets/images/illustration1.svg'
+import styled, {keyframes} from 'styled-components'
+
+
+const bounceAnimation = keyframes`
+  from, 20%, 100%, to {
+    transform: translate3d(0,0,0);
+  }
+  40%, 43% {
+    transform: translate3d(0, -50px, 0);
+  }
+  70% {
+    transform: translate3d(0, 0, 0);
+  }
+`
+
+const IMG = styled.img`
+ animation-name: ${bounceAnimation};
+ animation-duration: 9s;
+ animation-iteration-count: infinite;
+`
 
 
 
@@ -28,7 +48,8 @@ const Login = () => {
                   </div>  
                   <div className={classes.imgDiv}>
                       
-                    <img src={illustration1} alt='ils'/>
+                    <IMG src={illustration1} alt='ils'/>
+                    <div className={classes.Shadow}></div>
                   </div>
 
                 

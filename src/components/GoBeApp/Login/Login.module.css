@@ -74,10 +74,19 @@
   text-shadow: 0 9px 4px 1px rgb(223, 221, 221);
 }
 
-.imgDiv{
-    width:1000px; 
-    margin: 100px;
-    min-width: 500px;    
+.imgDiv {
+  width: 1000px;
+  margin: 100px;
+  min-width: 500px;
 }
+
+.Shadow {
+  display: block;
+  background-color: #22b573;
+  border: 3px solid #cccccc;
+  width: 70%;
+  margin-left: 12%;
+}
+
 
 
