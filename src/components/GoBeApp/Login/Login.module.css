@@ -27,7 +27,7 @@
   border-radius: 50px;
   box-shadow: 0 4px 2px 1px rgb(182, 180, 180);
   text-align: left;
-  padding: 0px 0px 0px 35px;
+  padding: 0px 0px 0px 30px;
   border: none;
   outline: none !important;
 }
@@ -65,7 +65,9 @@
   width: 50%;
   text-transform: uppercase;
   outline: none !important;
+  z-index: 200px;
 }
+
 .Text img {
   width: 1000px;
   min-width: 1060px;
@@ -77,9 +79,11 @@
 
 .imgDiv {
   width: 600px;
-  margin: 100px;
-  min-width: 500px;
-  padding: 20px;
+  margin: 10px 0 20px 15px;
+  min-width: 400px;
+  padding: 20px 0px;
+  align-items: center;
+  justify-content: center;
 }
 
 .Shadow {
