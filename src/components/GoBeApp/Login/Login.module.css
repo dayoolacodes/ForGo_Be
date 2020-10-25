@@ -3,7 +3,7 @@
 
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   /* min-height: 50vh; */
   flex-wrap: wrap;
   flex-direction: row;
@@ -68,20 +68,20 @@
   z-index: 200px;
 }
 
-.Text img {
-  width: 1000px;
+/* .Text img {
+  width: 100px;
   min-width: 1060px;
   text-align: center;
-  margin: 5% auto;
+  margin: 500% auto;
   background-color: transparent;
   text-shadow: 0 9px 4px 1px rgb(223, 221, 221);
-}
+} */
 
 .imgDiv {
-  width: 600px;
-  margin: 10px 0 20px 15px;
+  width: 800px;
+  margin: 20px 0 20px 15px;
   min-width: 400px;
-  padding: 20px 0px;
+  padding: 0px 0px;
   align-items: center;
   justify-content: center;
 }

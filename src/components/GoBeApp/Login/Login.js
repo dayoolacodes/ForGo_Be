@@ -19,7 +19,7 @@ const bounceAnimation = keyframes`
 `
 
 const IMG = styled.img`
- width: auto;
+ /* width: auto; */
  animation-name: ${bounceAnimation};
  animation-duration: 25s;
  animation-iteration-count: infinite;
@@ -31,10 +31,11 @@ const IMG = styled.img`
 const Login = () => {
     const [firstName, setFirstName] = useState('');
     const [email, setEmail] = useState('');
-//    const  [check, setCheck] = useState(false)
-//    const handleCheck =()=>{
-//        setCheck({check: !check})
-//    }
+   const  [check, setCheck] = useState(false)
+   
+   const handleCheck =()=>{
+       setCheck(!check)
+   }
 
 const handleFirstName =(e)=>{
     setFirstName(e.target.value)
@@ -70,8 +71,8 @@ const handleSubmit=()=>{
                  className={classes.TextBox} 
                  onChange={e=> handleEmail(e)}
                  />
-                <input type="checkbox"  name="subscribe" style={{marginLeft: "20px"}}/> 
-                <span className={classes.SubscribeText} >Subscribe to our newsletter</span>
+                <input type="checkbox" checked={check} onChange={handleCheck} name="subscribe" style={{marginLeft: "20px"}}/> 
+                <span className={classes.SubscribeText} onClick={handleCheck} >Subscribe to our newsletter</span>
                 <button className={classes.Button} type='submit' onClick={handleSubmit}> Submit </button>
                   </div>  
                   <div className={classes.imgDiv}>
