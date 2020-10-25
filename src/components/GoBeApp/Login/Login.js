@@ -23,17 +23,18 @@ const IMG = styled.img`
  animation-name: ${bounceAnimation};
  animation-duration: 25s;
  animation-iteration-count: infinite;
-`
-
+ `
 
 
 
 const Login = () => {
     const [firstName, setFirstName] = useState('');
     const [email, setEmail] = useState('');
-   const  [check, setCheck] = useState(false)
-   
-   const handleCheck =()=>{
+    const  [check, setCheck] = useState(false)
+    const [formDisplayValue, setFormDisplayValue] = useState('none') 
+    const [joinUsDisplayValue, setJoinUsDisplayValue] = useState('block') 
+    
+  const handleCheck =()=>{
        setCheck(!check)
    }
 
@@ -46,10 +47,17 @@ const handleEmail =(e)=>{
     // console.log(email)
 }
 
-const handleSubmit=()=>{
+const handleSubmit=(e)=>{
     //Send name and email
+    e.preventDefault();
+    alert(firstName + " Submitted!");
+    window.location.reload();
 }
 
+const handleDisplayValue=()=>{
+  setJoinUsDisplayValue('none');
+  setFormDisplayValue('block')
+}
 
     return ( 
         <Aux className={classes.Login}>
@@ -57,6 +65,8 @@ const handleSubmit=()=>{
                 <div className={classes.Text}> 
                 
                  Get access to valuable resources and information to grow a career in education and collaborate with passionate educators just like you.
+               
+                <div  style={{display:formDisplayValue}}>
                 <input placeholder='First Name' 
                 type='name' 
                 value={firstName} 
@@ -71,9 +81,22 @@ const handleSubmit=()=>{
                  className={classes.TextBox} 
                  onChange={e=> handleEmail(e)}
                  />
-                <input type="checkbox" checked={check} onChange={handleCheck} name="subscribe" style={{marginLeft: "20px"}}/> 
-                <span className={classes.SubscribeText} onClick={handleCheck} >Subscribe to our newsletter</span>
-                <button className={classes.Button} type='submit' onClick={handleSubmit}> Submit </button>
+                <input type="checkbox" 
+                checked={check} 
+                onChange={handleCheck} 
+                name="subscribe" 
+                style={{marginLeft: "20px"}}
+                /> 
+                <span className={classes.SubscribeText}
+                onClick={handleCheck} >Subscribe to our newsletter</span>
+                <button className={classes.Button} 
+                type='submit' 
+                onClick={handleSubmit}> Submit </button>
+                </div>
+                <button className={classes.Button} 
+                style={{display:joinUsDisplayValue, marginTop: "50px"}} 
+                type='submit' 
+                onClick={handleDisplayValue}> Join Us </button>
                   </div>  
                   <div className={classes.imgDiv}>
                       
