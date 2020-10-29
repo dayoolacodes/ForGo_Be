@@ -3,28 +3,29 @@ import React, { useState } from 'react';
 import Aux from '../../../hoc/Auxil'
 import classes from './Login.module.css'
 import illustration1 from '../../../assets/images/illustration1.svg'
-import styled, {keyframes} from 'styled-components'
+// import styled, {keyframes} from 'styled-components'
+import axios from 'axios'
 
 
-const bounceAnimation = keyframes`
-  from, 20%, 100%, to {
-    transform: translate3d(0,0,0);
-  }
-  40%, 43% {
-    transform: translate3d(0, -50px, 0);
-  }
-  70% {
-    transform: translate3d(0, 0, 0);
-  }
-`
 
-const IMG = styled.img`
- /* width: auto; */
- animation-name: ${bounceAnimation};
- animation-duration: 25s;
- animation-iteration-count: infinite;
- `
+// const bounceAnimation = keyframes`
+//   from, 20%, 100%, to {
+//     transform: translate3d(0,0,0);
+//   }
+//   40%, 43% {
+//     transform: translate3d(0, -50px, 0);
+//   }
+//   70% {
+//     transform: translate3d(0, 0, 0);
+//   }
+// `
 
+// const IMG = styled.img`
+//  /* width: auto; */
+//  animation-name: ${bounceAnimation};
+//  animation-duration: 25s;
+//  animation-iteration-count: infinite;
+//  `
 
 
 const Login = () => {
@@ -33,6 +34,7 @@ const Login = () => {
     const  [check, setCheck] = useState(false)
     const [formDisplayValue, setFormDisplayValue] = useState('none') 
     const [joinUsDisplayValue, setJoinUsDisplayValue] = useState('block') 
+    
     
   const handleCheck =()=>{
        setCheck(!check)
@@ -50,8 +52,38 @@ const handleEmail =(e)=>{
 const handleSubmit=(e)=>{
     //Send name and email
     e.preventDefault();
-    alert(firstName + " Submitted!");
-    window.location.reload();
+    
+
+    const data = {
+      firstName: firstName,
+      email: email,
+      confirmed: check
+    }
+    
+    
+  //   axios.post('https://gobe-home.herokuapp.com/frontend/api/users/', data, {
+  //     'Content-Type': 'application/json'
+  // })
+  //   .then(response=> {
+  //     console.log(response);
+  //   })
+  //   .catch(error => {
+  //     console.log(error);
+  //   });
+    
+    fetch("https://jsonplaceholder.typicode.com/users/", { 
+    method: "POST", 
+    body: JSON.stringify({ 
+     data
+    }), 
+    headers: { 
+        "Content-type": "application/json; charset=UTF-8"
+    } 
+    })
+    .then(response => response.json())
+    .then(json => console.log(json)); 
+    // alert(firstName + " Submitted!");
+    // window.location.reload();
 }
 
 const handleDisplayValue=()=>{
@@ -66,13 +98,16 @@ const handleDisplayValue=()=>{
                 
                  Get access to valuable resources and information to grow a career in education and collaborate with passionate educators just like you.
                
-                <div  style={{display:formDisplayValue}}>
+
+              
+                <form onSubmit={handleSubmit} style={{display:formDisplayValue}}>
                 <input placeholder='First Name' 
                 type='name' 
                 value={firstName} 
                 className={classes.TextBox} 
                 style={{marginTop: "80px"}} 
                 onChange={(e) => handleFirstName(e)}
+                required
                 />
                 
                 <input placeholder='Email'
@@ -80,6 +115,7 @@ const handleDisplayValue=()=>{
                  value={email} 
                  className={classes.TextBox} 
                  onChange={e=> handleEmail(e)}
+                 required
                  />
                 <input type="checkbox" 
                 checked={check} 
@@ -91,16 +127,17 @@ const handleDisplayValue=()=>{
                 onClick={handleCheck} >Subscribe to our newsletter</span>
                 <button className={classes.Button} 
                 type='submit' 
-                onClick={handleSubmit}> Submit </button>
-                </div>
+                > Submit </button>
+                </form>
+                
                 <button className={classes.Button} 
-                style={{display:joinUsDisplayValue, marginTop: "50px"}} 
-                type='submit' 
+                style={{display:joinUsDisplayValue, marginTop: "50px"}}  
                 onClick={handleDisplayValue}> Join Us </button>
                   </div>  
                   <div className={classes.imgDiv}>
                       
-                    <IMG src={illustration1} alt='ils'/>
+                    {/* <IMG src={illustration1} alt='ils'/> */}
+                    <img src={illustration1} alt='ils'/>
                     <div className={classes.Shadow}></div>
                   </div>
 
