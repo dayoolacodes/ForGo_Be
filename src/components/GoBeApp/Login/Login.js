@@ -97,9 +97,6 @@ const handleDisplayValue=()=>{
                 <div className={classes.Text}> 
                 
                  Get access to valuable resources and information to grow a career in education and collaborate with passionate educators just like you.
-               
-
-              
                 <form onSubmit={handleSubmit} style={{display:formDisplayValue}}>
                 <input placeholder='First Name' 
                 type='name' 
