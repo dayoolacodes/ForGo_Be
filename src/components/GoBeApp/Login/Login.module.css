@@ -62,9 +62,14 @@
   box-sizing: border-box;
   border-radius: 40px;
   box-shadow: 0 9px 4px 1px rgb(223, 221, 221);
-  width: 50%;
   text-transform: uppercase;
   outline: none !important;
+}
+.Button:hover {
+  background-color: #ffff;
+  color: #22b573;
+  box-shadow: 0 2px 5px 1px #ccc;
+  /* width: 150%; */
 }
 
 /* .Text img {

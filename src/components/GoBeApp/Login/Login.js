@@ -34,6 +34,7 @@ const Login = () => {
     const  [check, setCheck] = useState(false)
     const [formDisplayValue, setFormDisplayValue] = useState('none') 
     const [joinUsDisplayValue, setJoinUsDisplayValue] = useState('block') 
+    const [errorDisplay, setErrorDisplay] = useState('') 
     
     
   const handleCheck =()=>{
@@ -42,10 +43,16 @@ const Login = () => {
 
 const handleFirstName =(e)=>{
     setFirstName(e.target.value)
+    if(!firstName){
+      setErrorDisplay("")
+    }
     // console.log(firstName)
 }
 const handleEmail =(e)=>{
     setEmail(e.target.value)
+    if(!email){
+      setErrorDisplay("")
+    }
     // console.log(email)
 }
 
@@ -55,35 +62,23 @@ const handleSubmit=(e)=>{
     
 
     const data = {
-      firstName: firstName,
+      first_name: firstName,
       email: email,
       confirmed: check
     }
     
     
-  //   axios.post('https://gobe-home.herokuapp.com/frontend/api/users/', data, {
-  //     'Content-Type': 'application/json'
-  // })
-  //   .then(response=> {
-  //     console.log(response);
-  //   })
-  //   .catch(error => {
-  //     console.log(error);
-  //   });
-    
-    fetch("https://jsonplaceholder.typicode.com/users/", { 
-    method: "POST", 
-    body: JSON.stringify({ 
-     data
-    }), 
-    headers: { 
-        "Content-type": "application/json; charset=UTF-8"
-    } 
+    axios.post('https://gobe-home.herokuapp.com/frontend/api/users/', data)
+    .then(response=> {
+      console.log(response)
     })
-    .then(response => response.json())
-    .then(json => console.log(json)); 
-    // alert(firstName + " Submitted!");
-    // window.location.reload();
+    .catch(error => {
+      // console.log(error);
+      if(error.request){
+        setErrorDisplay("Seems this email already exists!")
+      }
+      
+    });
 }
 
 const handleDisplayValue=()=>{
@@ -114,6 +109,7 @@ const handleDisplayValue=()=>{
                  onChange={e=> handleEmail(e)}
                  required
                  />
+                <p style={{color:"red",letterSpacing: ".045em", fontSize:"25px"}}>{errorDisplay}</p>
                 <input type="checkbox" 
                 checked={check} 
                 onChange={handleCheck} 
