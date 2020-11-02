@@ -7,7 +7,9 @@ import gobe from '../../assets/images/gobelogo.svg'
 const header = () => {
     return ( 
         <Aux className={classes.Header}>
-        <a href='/'><img src={gobe} alt='Logo'/></a>
+        <a href='/'>
+            <img src={gobe} alt='Logo' />
+            </a>
         </Aux>
      );
 }

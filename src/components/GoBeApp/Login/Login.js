@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import Aux from '../../../hoc/Auxil'
 import classes from './Login.module.css'
 import illustration1 from '../../../assets/images/illustration1.svg'
+import Spinner from '../Spinner/Spinner'
 // import styled, {keyframes} from 'styled-components'
 import axios from 'axios'
 
@@ -35,6 +36,7 @@ const Login = () => {
     const [formDisplayValue, setFormDisplayValue] = useState('none') 
     const [joinUsDisplayValue, setJoinUsDisplayValue] = useState('block') 
     const [errorDisplay, setErrorDisplay] = useState('') 
+    const  [isLoading, setIsLoading] = useState(false)
     
     
   const handleCheck =()=>{
@@ -43,15 +45,17 @@ const Login = () => {
 
 const handleFirstName =(e)=>{
     setFirstName(e.target.value)
-    if(!firstName){
+    if(firstName!==e.target.value){
       setErrorDisplay("")
+      setIsLoading(false);
     }
     // console.log(firstName)
 }
 const handleEmail =(e)=>{
     setEmail(e.target.value)
-    if(!email){
+    if(email!==e.target.value){
       setErrorDisplay("")
+      setIsLoading(false);
     }
     // console.log(email)
 }
@@ -59,8 +63,8 @@ const handleEmail =(e)=>{
 const handleSubmit=(e)=>{
     //Send name and email
     e.preventDefault();
+    setIsLoading(true);
     
-
     const data = {
       first_name: firstName,
       email: email,
@@ -70,25 +74,32 @@ const handleSubmit=(e)=>{
     
     axios.post('https://gobe-home.herokuapp.com/frontend/api/users/', data)
     .then(response=> {
-      console.log(response)
+      console.log(response);
+      setIsLoading(false);
     })
     .catch(error => {
       // console.log(error);
-      if(error.request){
-        setErrorDisplay("Seems this email already exists!")
+      if(error.message === "Request failed with status code 400"){
+        setErrorDisplay("Seems this email already exists!");
+        setIsLoading(false);
       }
-      
+      else{
+        setErrorDisplay(error.message);
+        setIsLoading(false);
+        
+      }
     });
-}
-
-const handleDisplayValue=()=>{
+  }
+  
+  const handleDisplayValue=()=>{
   setJoinUsDisplayValue('none');
   setFormDisplayValue('block')
 }
 
+
     return ( 
         <Aux className={classes.Login}>
-          
+
                 <div className={classes.Text}> 
                 
                  Get access to valuable resources and information to grow a career in education and collaborate with passionate educators just like you.
@@ -119,13 +130,14 @@ const handleDisplayValue=()=>{
                 <span className={classes.SubscribeText}
                 onClick={handleCheck} >Subscribe to our newsletter</span>
                 <button className={classes.Button} 
-                type='submit' 
-                > Submit </button>
+                type='submit' style={{display: isLoading? "none" : "block"}}
+                > Submit</button>
                 </form>
-                
+                {isLoading? <Spinner />: ""}
                 <button className={classes.Button} 
                 style={{display:joinUsDisplayValue, marginTop: "50px"}}  
-                onClick={handleDisplayValue}> Join Us </button>
+                onClick={handleDisplayValue}> Join Us 
+                </button>
                   </div>  
                   <div className={classes.imgDiv}>
                       
